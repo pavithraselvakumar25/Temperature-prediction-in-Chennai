@@ -14,7 +14,7 @@ year = int(frm[3:])
 
 # DATA SEGMENTATION
 data = pd.read_csv("data/Temperature Data.csv")
-data =data.drop("Years",axis =1)
+
 
 x = np.array(data.columns,dtype=int)
 x = x.reshape(len(x),1)
