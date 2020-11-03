@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
+from sklearn.preprocessing import PolynomialFeatures
 
 # GETTING TIME PERIOD STRING FROM THE USER
 frm = input("Enter the time period in MM-YYYY: ")
@@ -38,4 +39,21 @@ plt.plot(x,model.predict(x),color="green")
 plt.title("Temperature prediction in Chennai")
 plt.xlabel("Years")
 plt.ylabel("Temperature(in Fahrenheit)")
+plt.show()
+
+#POLYNOMIAL REGRESSION
+poly_reg = PolynomialFeatures(degree = 4)
+x_poly = poly_reg.fit_transform(x)
+lin_reg_2 = LinearRegression()
+lin_reg_2.fit(x_poly,y)
+
+#PREDICTION
+lin_reg_2.predict(poly_reg.fit_transform([[x]])
+
+#PLOTTING THE VALUES USING MATLAB
+plt.scatter(x,y,color = 'red')
+plt.plot(x,lin_reg_2.predict(poly_reg.fit_tranform(x)),color = 'blue')
+plt.title('Temperature prediction in Chennai')
+plt.xlabel('Years')
+plt.ylabel('Temperature(in Fehrenheit)')
 plt.show()
