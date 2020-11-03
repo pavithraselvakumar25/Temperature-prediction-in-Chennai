@@ -27,7 +27,7 @@ y = y.reshape(len(y),1)
 model = LinearRegression().fit(x, y)
 r_sq = model.score(x, y)
 
-#PRINTING VALUES OF INTERCEPT AND SLOPE BEFORE RESHAPING
+#PRINTING VALUES OF INTERCEPT AND SLOPE 
 print("Values of intercept and slope are {} and {} respectively(before reshaping)".format(model.intercept_,model.coef_))
 
 #PREDICTION
