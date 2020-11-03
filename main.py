@@ -48,7 +48,7 @@ lin_reg_2 = LinearRegression()
 lin_reg_2.fit(x_poly,y)
 
 #PREDICTION
-lin_reg_2.predict(poly_reg.fit_transform([[x]])
+lin_reg_2.predict(poly_reg.fit_transform([[year]]))
 
 #PLOTTING THE VALUES USING MATLAB
 plt.scatter(x,y,color = 'red')
