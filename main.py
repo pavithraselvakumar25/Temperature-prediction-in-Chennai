@@ -29,16 +29,12 @@ r_sq = model.score(x, y)
 #PRINTING VALUES OF INTERCEPT AND SLOPE BEFORE RESHAPING
 print("Values of intercept and slope are {} and {} respectively(before reshaping)".format(model.intercept_,model.coef_))
 
-#PRINTING THE VALUES OF INTERCEPT AND SLOPE AFTER RESHAPING
-new_model = LinearRegression().fit(x, y.reshape((-1, 1)))
-print("Values of intercept and slope after reshaping are {} and {} respectively".format(new_model.intercept_,new_model.coef_))
-
 #PREDICTION
 y_pred = model.predict(x)
 
 #PLOTTING THE VALUES USING MATPLOTLIB
 plt.scatter(x,y,color = "red")
-plt.plot(x,new_model.predict(x),color="green")
+plt.plot(x,model.predict(x),color="green")
 plt.title("Temperature prediction in Chennai")
 plt.xlabel("Years")
 plt.ylabel("Temperature(in Fahrenheit)")
