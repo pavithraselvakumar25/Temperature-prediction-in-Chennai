@@ -15,7 +15,6 @@ year = int(frm[3:])
 # DATA SEGMENTATION
 data = pd.read_csv("data/Temperature Data.csv")
 
-
 x = np.array(data.columns,dtype=int)
 x = x.reshape(len(x),1)
 
@@ -28,12 +27,12 @@ model = LinearRegression().fit(x, y)
 r_sq = model.score(x, y)
 
 #PRINTING VALUES OF INTERCEPT AND SLOPE 
-print("Values of intercept and slope are {} and {} respectively(before reshaping)".format(model.intercept_,model.coef_))
+print("Values of intercept and slope are {} and {} respectively".format(model.intercept_,model.coef_))
 
 #PREDICTION
 y_pred = model.predict(x)
 
-#PLOTTING THE VALUES USING MATPLOTLIB
+#PLOTTING THE VALUES OF LINEAR REGRESSION
 plt.scatter(x,y,color = "red")
 plt.plot(x,model.predict(x),color="green")
 plt.title("Temperature prediction in Chennai")
@@ -48,11 +47,12 @@ lin_reg_2 = LinearRegression()
 lin_reg_2.fit(x_poly,y)
 
 #PREDICTION
-lin_reg_2.predict(poly_reg.fit_transform([[year]]))
+res = float(lin_reg_2.predict(poly_reg.fit_transform([[year]])))
+print(f"The predicted temperature at period {frm} is {res} degree Fahrenheit.")
 
-#PLOTTING THE VALUES USING MATLAB
+#PLOTTING THE VALUES OF POLYNOMIAL REGRESSION
 plt.scatter(x,y,color = 'red')
-plt.plot(x,lin_reg_2.predict(poly_reg.fit_tranform(x)),color = 'blue')
+plt.plot(x,lin_reg_2.predict(poly_reg.fit_transform(x)),color = 'blue')
 plt.title('Temperature prediction in Chennai')
 plt.xlabel('Years')
 plt.ylabel('Temperature(in Fehrenheit)')
